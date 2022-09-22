@@ -69,16 +69,16 @@ context 'novo contexto' do
   let(:first_hourglass_time) { 2 } # tempo da primeira ampulheta
   let(:second_hourglass_time) { 7 } # tempo da segunda ampulheta
 
-  let!(:service_response) { RamenTimeService.new(**params).call }
+  let!(:service_response) { RamenTime.new(**params).call }
 
   it 'retorno esperado' do
     # se não for possivel fazer o miojo incluir descomentar as linhas abaixo
-    # expect(service_response.time).to be_nil
-    # expect(service_response.message).to eq('The hourglass time must be longer than the ramen preparation time')
+    # expect(service_response[:time]).to be_nil
+    # expect(service_response[:message]).to eq('The hourglass time must be longer than the ramen preparation time')
 
     # se for possivel fazer o miojo descomentar as linhas abaixo
-    # expect(service_response.time).to eq(10) # acrescentar o tempo total de preparo do miojo
-    # expect(service_response.message).to eq('It is possible to cook in exact time')
+    # expect(service_response[:time]).to eq(10) # acrescentar o tempo total de preparo do miojo
+    # expect(service_response[:message]).to eq('It is possible to cook in exact time')
   end
 end
 ...
@@ -98,7 +98,7 @@ context 'novo contexto' do
     {x: 4, y: -3}
 
   ]} }
-  let!(:service_response) { DistanceBetweenPointsService.new(**params).call }
+  let!(:service_response) { DistanceBetweenPoints.new(**params).call }
 
   # acrescentar abaixo os retornos esperados, onde para n pontos inseridos haverá o retorno de (n-1)*n. Para cada linha x1 e y1 equivalem ao ponto A de comparação, x2 e y2 ao ponto B de comparação e distance a distancia entre os dois pontos (sendo essa cortada em 5 casas decimais após a virgula para facilitar os testes)
   it 'retorno esperado' do
